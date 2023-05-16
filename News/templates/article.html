@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} <title>{{ article["title"] }} - The Place Holder</title> {% endblock %}
+
+{% block main_content %}
+
+<section id="article">
+    {% if g.admin == True %}
+    <a href="{{ url_for('delete_article', article_id = g.currentArticle ) }}">Delete Article</a>
+    {% endif %}
+    <h2>{{ article["title"] }}</h2>
+    <h3>{{ article["date"] }}</h3>
+    {% for paragraph in article_content %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+</section>
+
+<section id="comments">
+    <h2>Comments</h2>
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+    
+        {{ form.comment(placeholder="Make a comment...") }}
+        {% for error in form.comment.errors %}
+            {{ error }}
+        {% endfor %}
+        <br/>
+        {{ form.submit() }}
+    </form>
+    
+    {% for comment in comments %}
+        <article>
+            <h4>{{ comment["username"] }}</h4>
+            <p>{{ comment["comment"] }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock %}

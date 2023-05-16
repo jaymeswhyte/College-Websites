@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} <title>The Place Holder - Home</title> {% endblock %}
+
+{% block main_content %}
+
+<section id="News">
+        <h2>Recent News</h2>
+        <section id="articles">
+        {% for article in articles %}
+        <article>
+            <h3><a href="{{ url_for('article', article_id=article[0]) }}">{{ article["title"] }}</a></h3>
+        </article>
+        {% endfor %}
+        </section>
+</section>
+
+{% endblock %}

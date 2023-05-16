@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Create an Article - The Place Holder</title> {% endblock %}
+
+{% block main_content %}
+
+<h2>Create Article</h2>
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+
+    {{ form.title.label }}
+    {{ form.title() }}
+    {% for error in form.title.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+    {{ form.content.label }}
+    {{ form.content() }}
+    {% for error in form.content.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+    {{ form.submit() }}
+    <br/>
+    {{ message }}
+</form>
+
+{% endblock %}

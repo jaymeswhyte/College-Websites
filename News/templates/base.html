@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        {% block title %} {% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('index') }}"><h1>The Place Holder</h1></a>
+        </header>
+        <nav>
+            <ul>
+                {% if g.admin == True %} 
+                <li><a href="{{ url_for('admin_menu') }}">Admin Menu</a></li>
+                {% endif %}
+                {% if g.user != None %}
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% elif g.user == None %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            </ul>
+        </nav>
+        <section id="content">
+            {% block main_content %}
+            {% endblock %}
+        </section>
+    </body>
+
+    <footer>{{ g.loginMessage }}</footer>
+</html>

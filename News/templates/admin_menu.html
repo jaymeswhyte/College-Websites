@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} <title>The Place Holder - Home</title> {% endblock %}
+
+{% block main_content %}
+
+<section id="Functions">
+        <h3><a href="{{ url_for('users') }}">Users</a></h3>
+        <p>A table of all currently registered users</p>
+
+        <h3><a href="{{ url_for('create_article') }}">Create Article</a></h3>
+        <p>Create a new article for the website</p>
+</section>
+
+{% endblock %}

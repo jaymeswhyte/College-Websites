@@ -1,0 +1,11 @@
+canvas {
+    display: block;
+    margin: auto auto;
+}
+
+h1 {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}

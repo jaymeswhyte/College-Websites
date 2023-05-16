@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Desert Chase</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link href="{{ url_for('static', filename = 'chase.css') }}" rel="stylesheet"/>
+        <script src="{{ url_for ('static', filename = 'chase.js') }}" type="module"></script>
+    </head>
+    <body>
+        <h1>Desert Chase</h1>
+        <canvas width="480" height="640">
+        </canvas>
+    </body>
+</html>
